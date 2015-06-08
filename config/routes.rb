@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  get 'orders/index'
+
+  get 'orders/show'
+
   mount Shoppe::Engine => "/shoppe"
 
   post "product/:permalink", to: "products#buy"
   get "product/:permalink", to: "products#show", as: "product"
   post "product/:permalink", to: "products#buy", as: "buy"
   root to: "products#index"
+  get "basket", to: "orders#show"
 
   
   # The priority is based upon order of creation: first created -> highest priority.
