@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post "product/:permalink", to: "products#buy", as: "buy"
   root to: "products#index"
   get "basket", to: "orders#show"
+  delete "basket", to: "orders#destroy"
 
   
   # The priority is based upon order of creation: first created -> highest priority.
