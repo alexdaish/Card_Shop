@@ -1,27 +1,34 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>CardShop</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<% if current_order %>
-<p style="border:1px solid black;padding:10px;">
-  You have <%= pluralize current_order.total_items, 'item'%> in your basket which cost
-  <%= number_to_currency current_order.total_before_tax %>.
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-    <%= link_to "View basket", basket_path %>
-	<%= flash[:notice] %>
-	<%= link_to "Checkout", checkout_path %>
-</p>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
+  <body>
 
-<%= yield %>
+    <% if current_order %>
+      <p style="border:1px solid black;padding:10px;">
+        You have <%= pluralize current_order.total_items, 'item'%> in your basket which cost
+        <%= number_to_currency current_order.total_before_tax %>.
 
-<% end %>
+          <%= link_to "View basket", basket_path %>
+      <%= flash[:notice] %>
+      <%= link_to "Checkout", checkout_path %>
+      </p>
 
-</body>
+    <%= yield %>
+
+    <% end %>
+
+  </body>
 </html>
+
+
