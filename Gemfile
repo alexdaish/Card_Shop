@@ -38,6 +38,8 @@ gem "shoppe-stripe", require: "shoppe/stripe"
 
 gem "shoppe-notification"
 
+gem 'foundation-rails'
+
 
 
 group :development, :test do

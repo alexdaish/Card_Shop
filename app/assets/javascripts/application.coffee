@@ -1,5 +1,6 @@
 #= require jquery
 #= require jquery_ujs
+#= require foundation
 
 $ ->
 
@@ -70,3 +71,5 @@ $ ->
       dataType: 'json'
       success: updateOrderItemsFromRemote
       
+() ->
+  $(document).foundation()
